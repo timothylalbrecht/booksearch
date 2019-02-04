@@ -11,10 +11,7 @@ const SearchForm = ({onSubmit, onChange, value}) => {
         value={value}
         name="searchTerm"
       />
-      <button 
-        className="btn btn-block btn-outline-dark"
-        onClick={onSubmit}
-        >
+      <button className="btn btn-block btn-outline-dark" onClick={onSubmit}>
         Search
       </button>
     </form>
