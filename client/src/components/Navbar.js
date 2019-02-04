@@ -1,32 +1,23 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Link className="navbar-brand" to="/">
-        <i class="fas fa-book-open" />
+        <i class="fas fa-book" />
         Google Book Search
       </Link>
       <ul className="nav">
         <li className="nav-item">
-          <NavLink
-            className={`nav-link text-info ${
-              window.location.pathname === "/" ? "text-danger" : ""
-            }`}
-            to="/"
-          >
-            Search For Books
+          <NavLink className={`nav-link text-white ${ window.location.pathname === "/" ? "text-white" : "" }`} to="/">
+            Book Search
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink
-            className={`nav-link text-info ${
-              window.location.pathname === "/saved" ? "text-danger" : ""
-            }`}
-            to="/saved"
-          >
-            View Saved Books
+          <NavLink className={`nav-link text-white ${ window.location.pathname === "/saved" ? "text-white" : "" }`} to="/saved">
+            Saved Books
           </NavLink>
         </li>
       </ul>
