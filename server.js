@@ -1,24 +1,32 @@
-const express = require("express");
-const path = require("path");
+// import dependencies
+const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+const routes = require('./routes');
 const PORT = process.env.PORT || 3001;
+
+// set up express server
 const app = express();
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
+// set up express middleware
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
+
+// serve up front end from server ONLY if in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Define API routes here
+// turn on routes
+app.use(routes);
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
+// set up a wildcard route just in case all of the other routes fail
+app.get("*", function(req,res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
+// turn on mongo connection
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {useNewUrlParser: true});
+
+// turn on server
+app.listen(PORT, () => console.log(`🗺️ ==> Server now on ${PORT}`))
