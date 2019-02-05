@@ -12,10 +12,7 @@ module.exports = {
       .find(req.query)
       .sort({date: -1})
       .then(dbBookData => res.json(dbBookData))
-      .catch(err => {
-        console.log(err);
-        res.json(err);
-      });
+      .catch(err => {console.log(err); res.json(err);});
   },
   // find a book by id ("/api/book/:id")
   findById: function (req, res) {

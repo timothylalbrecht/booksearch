@@ -2,8 +2,9 @@ import React from 'react';
 // import components from react router dom
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-// import components and pages to use
+// import components
 import Navbar from './components/Navbar';
+// import pages
 import Search from './pages/Search';
 import Saved from './pages/Saved';
 
