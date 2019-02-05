@@ -1,7 +1,7 @@
 {
   "name": "google-book-search",
   "version": "1.0.0",
-  "description": "Search for books on Google and save them using Mongo",
+  "description": "Search for books via GoogleBooks API",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -22,6 +22,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "if-env": "^1.0.4",
-    "mongoose": "^5.4.3"
+    "mongoose": "^5.4.3",
+    "terser": "3.14.1"
   }
 }
