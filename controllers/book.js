@@ -1,12 +1,9 @@
 // import our Book model
 const db = require("../models");
 
-// export a set of methods to edit and manipulate the Book collection
 module.exports = {
-  // find all books ("/api/book" => GET)
+  // find all books
   findAll: function(req, res) {
-    // /api/book?title=harry+potter
-    // req.query => {title: "harry potter"}
     db
       .Book
       .find(req.query)
@@ -24,7 +21,7 @@ module.exports = {
         res.status(422).json(err)
       });
   },
-  // create / insert new book ("/api/book" => POST)
+  // new book entry (POST)
   create: function (req, res) {
     db.Book
       .create(req.body)
@@ -44,7 +41,7 @@ module.exports = {
         res.status(422).json(err)
       });
   },
-  // to delete a book from the reading list ("/api/book/:id" => DELETE)
+  // to delete a book from the reading list (DELETE)
   remove: function (req, res) {
     db.Book
       .findById(req.params.id)
